@@ -16,11 +16,6 @@ jobs:
   check-codeql:
     name: check-codeql
     runs-on: ubuntu-latest
-    
-    permissions:
-      actions: write
-      contents: read
-      security-events: write
 
     strategy:
       fail-fast: false
