@@ -12,11 +12,24 @@
 
 #include "internal.h"
 
-int sl_init_textures(t_game *game)
+static int	init_textures(t_game *game)
 {
-	game->textures.wall_tex = mlx_load_png("./textures/wall.png");
-	game->textures.floor_tex = mlx_load_png("./textures/floor.png");
-	return 1;
+	game->textures.wall_full = mlx_load_png("./textures/walls/wall.png");
+	game->textures.wall_border = mlx_load_png("./textures/walls/Walls-5.png");
+	game->textures.floor = mlx_load_png("./textures/floors/floor.png");
+	game->textures.grass_floor = mlx_load_png("./textures/floors/grass_floor.png");
+	game->textures.stein_floor = mlx_load_png("./textures/floors/stein_floor.png");
+	return (1);
+}
+
+static int inti_images_on_textures(t_game *game)
+{
+	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
+	game->img.grass_floor = mlx_texture_to_image(game->mlx, game->textures.grass_floor);
+	game->img.stein_floor = mlx_texture_to_image(game->mlx, game->textures.stein_floor);
+	game->img.wall_full = mlx_texture_to_image(game->mlx, game->textures.wall_full);
+	game->img.wall_border = mlx_texture_to_image(game->mlx, game->textures.wall_border);
+	return (1);
 }
 
 int	sl_render_init(t_game *game)
@@ -25,8 +38,10 @@ int	sl_render_init(t_game *game)
 	int	height;
 	int	status;
 
-	if (!sl_init_textures(game))
-		return (0;)
+	if (!init_textures(game))
+		return (0);
+	if (!inti_images_on_textures(game))
+		return (0);
 	width = game->map.width * game->tile_size;
 	height = game->map.height * game->tile_size;
 	game->img.frame = mlx_new_image(game->mlx, width, height);
