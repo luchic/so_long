@@ -16,3 +16,8 @@
 
 #### General
 * Check freee functions
+
+
+#### Add somthing.
+* I could add several floors
+* Add not only one floor textures
