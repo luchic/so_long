@@ -5,3 +5,14 @@
 4) I don't need redrew all map.
 
 #### drow Images.
+
+
+#### Idea of Map
+1) Devide storage of map on layers:
+    * First layer: Walls and Floors
+    * Second layer: some collectible items
+    * Third layer: for player
+
+
+#### General
+* Check freee functions
