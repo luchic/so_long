@@ -40,14 +40,24 @@ typedef struct s_player
 	int		collected;
 }	t_player;
 
-typedef struct s_img
+typedef struct s_textures
 {
 	mlx_texture_t	*wall_tex;
 	mlx_texture_t	*floor_tex;
 	mlx_texture_t	*collect_tex;
 	mlx_texture_t	*exit_tex;
 	mlx_texture_t	*player_tex;
-	mlx_image_t		*frame;
+} t_textures;
+
+
+typedef struct s_img
+{
+	mlx_image_t	*wall_img;
+	mlx_image_t	*floor_img;
+	mlx_image_t	*collect_img;
+	mlx_image_t	*exit_img;
+	mlx_image_t	*player_img;
+	mlx_image_t	*frame;
 }	t_img;
 
 typedef struct s_game
@@ -56,6 +66,7 @@ typedef struct s_game
 	t_map		map;
 	t_player	player;
 	t_img		img;
+	t_textures  textures;
 	int			tile_size;
 	int			game_over;
 }	t_game;

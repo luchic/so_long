@@ -26,6 +26,7 @@ void	sl_init_player(t_game *game)
 	game->map.grid[game->player.pos.y][game->player.pos.x] = '0';
 }
 
+
 int	sl_init_game(t_game *game, const char *path)
 {
 	int	width;
