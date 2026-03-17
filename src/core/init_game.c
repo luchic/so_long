@@ -48,6 +48,7 @@ int	sl_init_game(t_game *game, const char *path)
 		sl_free_game(game);
 		return (0);
 	}
-	sl_redraw(game);
+	// sl_redraw(game);
+	sl_init_backgournd(game);
 	return (1);
 }
