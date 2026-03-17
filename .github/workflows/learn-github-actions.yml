@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: npm install -y norminette
+      - run: apt install -y norminette
       - run: norminette
