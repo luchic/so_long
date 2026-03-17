@@ -33,9 +33,7 @@ char	*sl_strip_newline(char *line)
 	if (!line)
 		return (NULL);
 	len = ft_strlen(line);
-	if (len > 0 && (line[len - 1] == '\r' || line[len - 1] == '\n'))
-		len--;
-    if (len > 0 && (line[len - 1] == '\r' || line[len - 1] == '\n'))
+	if (len > 0 && (line[len - 1] == '\n'))
 		len--;
 	return (ft_substr(line, 0, len));
 }
