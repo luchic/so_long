@@ -12,8 +12,9 @@ char	**init_array(int height, int widht)
 	while (i < height)
 	{
 		res[i] = ft_calloc(widht, sizeof(char *));
+		i++;
 	}
-	return res;
+	return (res);
 }
 
 char	**copy_array(char **src, int height, int widht)
