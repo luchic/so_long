@@ -7,7 +7,9 @@ SRC_FILES = $(wildcard src/*.c) \
       $(wildcard src/parsing/*.c) \
       $(wildcard src/validation/*.c) \
       $(wildcard src/render/*.c) \
-      $(wildcard src/game/*.c)
+      $(wildcard src/game/*.c) \
+	  $(wildcard src/tools/*.c) \
+	  $(wildcard src/generate/*.c)
 
 SRC_OBJS = $(SRC_FILES:.c=.o)
 
@@ -25,7 +27,7 @@ BUILD_DIR = $(MLX42)/build
 MLX42LIB = $(BUILD_DIR)/libmlx42.a
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror -Iincludes -I$(MLX42)/include/MLX42
+CFLAGS = -g -Wall -Wextra -Werror -Iincludes -I$(MLX42)/include/MLX42 -fsanitize=address
 
 
 EXT_LIBS = -ldl -lglfw -pthread -lm
