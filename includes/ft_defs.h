@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 12:06:14 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:29:57 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,13 @@ typedef struct s_textures
 	mlx_texture_t	*floor;
 	mlx_texture_t	*grass_floor;
 	mlx_texture_t	*stein_floor;
-	mlx_texture_t	*collect_tex;
-	mlx_texture_t	*exit_tex;
-	mlx_texture_t	*player_tex;
+	mlx_texture_t	*collect;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*player;
 }					t_textures;
 
 typedef struct s_img
 {
-	mlx_image_t		*wall_full;
-	mlx_image_t		*wall_border;
-	mlx_image_t		*floor;
-	mlx_image_t		*stein_floor;
-	mlx_image_t		*grass_floor;
-	mlx_image_t		*collect_img;
-	mlx_image_t		*exit_img;
-	mlx_image_t		*player_img;
 	mlx_image_t		*background_frame;
 	mlx_image_t		*frame;
 }					t_img;

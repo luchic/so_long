@@ -33,37 +33,9 @@ static int	init_textures(t_game *game)
 	return (1);
 }
 
-static int	init_images_on_textures(t_game *game)
-{
-	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
-	game->img.grass_floor = mlx_texture_to_image(game->mlx,
-			game->textures.grass_floor);
-	game->img.stein_floor = mlx_texture_to_image(game->mlx,
-			game->textures.stein_floor);
-	game->img.wall_full = mlx_texture_to_image(game->mlx,
-			game->textures.wall_full);
-	game->img.wall_border = mlx_texture_to_image(game->mlx,
-			game->textures.wall_border);
-	if (!game->img.floor
-		|| !game->img.grass_floor
-		|| !game->img.stein_floor
-		|| !game->img.wall_full
-		|| !game->img.wall_border)
-	{
-		sl_destroy_img(game);
-		return (0);
-	}
-	return (1);
-}
-
 int	sl_load_assets(t_game *game)
 {
 	if (!init_textures(game))
 		return (0);
-	if (!init_images_on_textures(game))
-	{
-		sl_destroy_textures(game);
-		return (0);
-	}
 	return (1);
 }
