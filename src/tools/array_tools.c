@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:22 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:25:27 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:52:37 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**init_array(int height, int widht)
 	i = 0;
 	while (i < height)
 	{
-		res[i] = ft_calloc(widht, sizeof(char *));
+		res[i] = ft_calloc(widht, sizeof(char));
 		i++;
 	}
 	return (res);
