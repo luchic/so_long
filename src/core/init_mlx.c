@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:14:02 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:40:15 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ int	sl_init_mlxwindow(t_game *game)
 	height = game->map.height * game->tile_size;
 	game->mlx = mlx_init(width, height, SL_TITLE, true);
 	if (!game->mlx)
-	{
-		return (0);
-	}
-	if (!sl_render_init(game))
 	{
 		return (0);
 	}
