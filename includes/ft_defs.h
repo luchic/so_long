@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/17 20:06:54 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:03:29 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ typedef struct s_pos
 }	t_pos;
 
 // Map shouldn't contain informaiont about.
+// background_layer / interactive_layer are declared as char **,
+// but the code stores values from t_map_tiles (an enum).
+// Using t_map_tiles ** (or a fixed-width integer type) will make
+// the intent explicit and avoid surprises if the enum grows beyond char range.
 typedef struct s_map
 {
 	char	**grid;
