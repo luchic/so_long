@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:01:49 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:12:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sl_destroy_textures(t_game *game);
 void	sl_free_img(t_game *game, mlx_texture_t	**img);
 void	sl_destroy_img(t_game *game);
 
-
+int		sl_load_assets(t_game *game);
 
 char	**init_array(int height, int widht);
 char	**copy_array(char **src, int height, int widht);
