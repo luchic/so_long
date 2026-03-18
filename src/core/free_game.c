@@ -41,8 +41,9 @@ void	sl_free_game(t_game *game)
 {
 	if (!game)
 		return ;
-	if (game->mlx && game->img.frame)
-		mlx_delete_image(game->mlx, game->img.frame);
+	sl_destroy_textures(game);
+	if (game->mlx)
+		sl_destroy_img(game);
 	if (game->mlx)
 		mlx_terminate(game->mlx);
 	sl_free_map(&game->map);
