@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:04 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:25:04 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:57:36 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	sl_init_floor(t_game *game)
 	int	j;
 
 	game->map.background_layer = init_array(game->map.height, game->map.width);
+	if (!game->map.background_layer)
+		return (0);
 	i = 0;
 	while (i < game->map.height)
 	{
