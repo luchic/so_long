@@ -55,6 +55,6 @@ int		sl_can_move(t_game *game, int nx, int ny);
 void	sl_try_collect(t_game *game, int nx, int ny);
 void	sl_check_win(t_game *game, int nx, int ny);
 
-int sl_init_mlxwindow(t_game *game);
-int sl_init_backgournd(t_game *game);
+int		sl_init_mlxwindow(t_game *game);
+int		sl_init_backgournd(t_game *game);
 #endif
