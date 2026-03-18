@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 12:27:39 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:20:10 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "so_long.h"
 
-int		sl_init_floor(t_game *game);
+void	sl_init_floor(t_game *game);
 int		sl_optimize_border_tiles(t_game *game);
 int		sl_init_backgournd(t_game *game);
 int		sl_generate_background(t_game *game);
@@ -37,4 +37,10 @@ void	free_araay_rows(char **array, int size);
 
 int		sl_insert_tile(t_game *game, mlx_image_t *frame,
 			mlx_texture_t *tile, t_pos dpos);
+
+// =================== Map generation =======================
+int		sl_generate_interactive_layer(t_game *game);
+int		sl_alloc_interactive_layers(t_game *game);
+void	sl_iterate_layer(t_game *game, void (*f)(t_game*, int, int));
+void	sl_fill_interactive_layer(t_game *game);
 #endif

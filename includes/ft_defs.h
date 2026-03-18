@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 12:29:57 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:18:46 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef enum e_map_tile
 	VERTICAL_WALL,
 	HORIZONTAL_WALL,
 	PLAYER,
-	ITEM,
+	COLLECTABLE,
 	EXIT,
 }	t_map_tiles;
 
