@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_tools.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 10:24:22 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 10:25:27 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "internal.h"
 
 char	**init_array(int height, int widht)
@@ -32,7 +44,7 @@ char	**copy_array(char **src, int height, int widht)
 	while (i < height)
 	{
 		j = 0;
-		while (j <widht)
+		while (j < widht)
 		{
 			res[i][j] = src[i][j];
 			j++;

@@ -27,6 +27,7 @@ static void	sl_dispatch_move(t_game *game, keys_t key)
 void	sl_handle_key(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
+
 	game = (t_game *)param;
 	if (keydata.action != MLX_PRESS)
 		return ;

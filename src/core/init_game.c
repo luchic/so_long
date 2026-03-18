@@ -26,7 +26,7 @@ static void	sl_init_player(t_game *game)
 	game->map.grid[game->player.pos.y][game->player.pos.x] = '0';
 }
 
-static int sl_init_map(t_game *game, const char *path)
+static int	sl_init_map(t_game *game, const char *path)
 {
 	if (!sl_parse_map(path, &game->map))
 		return (0);
@@ -48,7 +48,6 @@ int	sl_init_game(t_game *game, const char *path)
 		sl_free_game(game);
 		return (0);
 	}
-	// sl_redraw(game);
 	sl_init_backgournd(game);
 	return (1);
 }
