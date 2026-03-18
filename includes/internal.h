@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:39:28 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:48:42 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		sl_random_range(int min, int max);
 
 void	sl_free_texture(mlx_texture_t	**texture);
 void	sl_destroy_textures(t_game *game);
-void	sl_free_img(t_game *game, mlx_texture_t	**img);
+void	sl_free_img(t_game *game, mlx_image_t	**img);
 void	sl_destroy_img(t_game *game);
 
 int		sl_load_assets(t_game *game);

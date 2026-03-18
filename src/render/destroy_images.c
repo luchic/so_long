@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:35:11 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:48:28 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sl_destroy_textures(t_game *game)
 	sl_free_texture(&(game->textures.player_tex));
 }
 
-void	sl_free_img(t_game *game, mlx_texture_t	**img)
+void	sl_free_img(t_game *game, mlx_image_t	**img)
 {
 	if (img || *img)
 	{
