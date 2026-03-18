@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:48:42 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:55:26 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	sl_run_map_generation(t_game *game);
 
 char	**init_array(int height, int widht);
 char	**copy_array(char **src, int height, int widht);
+void	free_araay_rows(char **array, int size);
 #endif
