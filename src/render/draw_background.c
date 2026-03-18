@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:14:10 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:37:46 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:06:23 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	setup_background_tile(t_game *game, int y, int x)
 	else if (game->map.background_layer[y][x] == VERTICAL_WALL)
 		sl_insert_tile(game, game->img.background_frame,
 			game->img.wall_full, pos);
-	else if (game->map.background_layer[y][x] == EMPRY_FLOOR)
+	else if (game->map.background_layer[y][x] == EMPTY_FLOOR)
 		sl_insert_tile(game, game->img.background_frame, game->img.floor, pos);
 	else if (game->map.background_layer[y][x] == GRASS_FLOOR)
 		sl_insert_tile(game, game->img.background_frame,

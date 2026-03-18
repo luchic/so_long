@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 12:03:29 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:06:14 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef enum e_map_tile
 {
 	EMPTY,
-	EMPRY_FLOOR,
+	EMPTY_FLOOR,
 	GRASS_FLOOR,
 	STEIN_FLOOR,
 	VERTICAL_WALL,

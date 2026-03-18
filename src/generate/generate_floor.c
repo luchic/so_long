@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:04 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:57:36 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:06:30 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_map_tiles	get_random_floor_tile(void)
 		return (GRASS_FLOOR);
 	if (rand == 2)
 		return (STEIN_FLOOR);
-	return (EMPRY_FLOOR);
+	return (EMPTY_FLOOR);
 }
 
 int	sl_init_floor(t_game *game)
