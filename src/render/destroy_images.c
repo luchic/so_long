@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:49:27 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:29:22 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	sl_destroy_textures(t_game *game)
 	sl_free_texture(&(game->textures.grass_floor));
 	sl_free_texture(&(game->textures.stein_floor));
 	sl_free_texture(&(game->textures.collect));
-	sl_free_texture(&(game->textures.exit));
 	sl_free_texture(&(game->textures.player));
 	sl_free_texture(&(game->textures.empty));
+	sl_free_texture(&(game->textures.collect));
+	sl_free_texture(&(game->textures.player));
+	sl_free_texture(&(game->textures.exit_close));
+	sl_free_texture(&(game->textures.exit_open));
 }
 
 void	sl_free_img(t_game *game, mlx_image_t	**img)

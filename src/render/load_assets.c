@@ -19,7 +19,11 @@ static int	check_allocation_textures(t_game *game)
 		|| !game->textures.floor
 		|| !game->textures.grass_floor
 		|| !game->textures.stein_floor
-		|| !game->textures.empty)
+		|| !game->textures.empty
+		|| !game->textures.collect
+		|| !game->textures.player
+		|| !game->textures.exit_close
+		|| !game->textures.exit_open)
 	{
 		sl_destroy_textures(game);
 		return (0);
@@ -37,6 +41,10 @@ static int	allocate_textures(t_game *game)
 	game->textures.stein_floor = mlx_load_png(
 			"./textures/floors/stein_floor.png");
 	game->textures.empty = mlx_load_png("./textures/empty.png");
+	game->textures.collect = mlx_load_png("./textures/iteractive/collectable.png");
+	game->textures.player = mlx_load_png("./textures/iteractive/player.png");
+	game->textures.exit_close = mlx_load_png("./textures/iteractive/exit_opend.png");
+	game->textures.exit_open = mlx_load_png("./textures/iteractive/exit_closed.png");
 	if (!check_allocation_textures(game))
 	{
 		sl_destroy_textures(game);
