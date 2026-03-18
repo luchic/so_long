@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:13:18 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:49:27 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:57:12 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int	sl_redraw_acttion_layer(t_game *game)
 	return (1);
 }
 
-int	sl_init_action_frame(t_game *game)
+static void	draw_interative_frame(t_game *game)
+{
+}
+
+static int	init_interactive_frame(t_game *game)
 {
 	int	width;
 	int	height;
@@ -30,5 +34,13 @@ int	sl_init_action_frame(t_game *game)
 		return (0);
 	if (mlx_image_to_window(game->mlx, game->img.interactive_frame, 0, 0) < 0)
 		return (0);
+	return (1);
+}
+
+int	sl_draw_interative_frame(t_game *game)
+{
+	if (!init_interactive_frame(game))
+		return (0);
+
 	return (1);
 }
