@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:14:10 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:21:39 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:37:46 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,16 @@ static int	drow_background(t_game *game)
 
 int	sl_init_backgournd(t_game *game)
 {
-	sl_generate_background(game);
-	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
+	int	width;
+	int	height;
+
+	width = game->map.width * game->tile_size;
+	height = game->map.height * game->tile_size;
+	game->img.background_frame = mlx_new_image(game->mlx, width, height);
+	if (!game->img.background_frame)
+		return (0);
 	drow_background(game);
-	mlx_image_to_window(game->mlx, game->img.background_frame, 0, 0);
+	if (mlx_image_to_window(game->mlx, game->img.background_frame, 0, 0) < 0)
+		return (0);
 	return (1);
 }
