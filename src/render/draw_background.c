@@ -70,13 +70,13 @@ static int drow_background(t_game *game)
 
 int	sl_init_backgournd(t_game *game)
 {
-	int	width;
-	int	height;
+	// int	width;
+	// int	height;
 
 	sl_generate_background(game);
 
-	width = game->map.width * game->tile_size;
-	height = game->map.height * game->tile_size;
+	// width = game->map.width * game->tile_size;
+	// height = game->map.height * game->tile_size;
 	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
 	drow_background(game);
 	mlx_image_to_window(game->mlx, game->img.background_frame, 0, 0);
