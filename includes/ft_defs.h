@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:49:27 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:26:31 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ typedef struct s_textures
 	mlx_texture_t	*grass_floor;
 	mlx_texture_t	*stein_floor;
 	mlx_texture_t	*collect;
-	mlx_texture_t	*exit;
+	mlx_texture_t	*exit_open;
+	mlx_texture_t	*exit_close;
 	mlx_texture_t	*player;
 	mlx_texture_t	*empty;
 }					t_textures;
