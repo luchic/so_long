@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:30:05 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:49:27 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**init_array(int height, int widht);
 char	**copy_array(char **src, int height, int widht);
 void	free_araay_rows(char **array, int size);
 
-int		sl_insert_tile(t_game *game, mlx_image_t *frame,
+int		sl_insert_tile(t_game *game, mlx_image_t *interactive_frame,
 			mlx_texture_t *tile, t_pos dpos);
 
 // =================== Map generation =======================

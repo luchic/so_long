@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:46:23 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:49:27 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_textures
 typedef struct s_img
 {
 	mlx_image_t		*background_frame;
-	mlx_image_t		*frame;
+	mlx_image_t		*interactive_frame;
 }					t_img;
 
 typedef struct s_game

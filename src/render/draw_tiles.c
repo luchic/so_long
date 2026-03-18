@@ -2,7 +2,7 @@
 
 int	sl_insert_tile(
 	t_game *game,
-	mlx_image_t *frame,
+	mlx_image_t *interactive_frame,
 	mlx_texture_t *tile,
 	t_pos dpos)
 {
@@ -15,7 +15,7 @@ int	sl_insert_tile(
 	i = 0;
 	tile_size = game->tile_size;
 	src = (uint32_t *)tile->pixels;
-	dst = (uint32_t *)frame->pixels;
+	dst = (uint32_t *)interactive_frame->pixels;
 	while (i < tile_size)
 	{
 		j = 0;
