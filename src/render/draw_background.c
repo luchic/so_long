@@ -1,10 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_background.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 10:14:10 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 10:17:53 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "internal.h"
-
-// y = y * height + x - simple (in sinne of tiles)
-// But tiles has size (tile_size)
-// i have dx, dy = tile position
-// 
-
 
 int	sl_insert_tile(
 	t_game *game,
@@ -37,30 +43,40 @@ int	sl_insert_tile(
 	return (1);
 }
 
-
-static int drow_background(t_game *game)
+static void	setup_background_tile(t_game *game, int y, int x)
 {
-	int x = 0;
-	int y = 0;
-	t_pos pos;
+	t_pos	pos;
 
+	pos.x = x;
+	pos.y = y;
+	if (game->map.background_layer[y][x] == HORIZONTAL_WALL)
+		sl_insert_tile(game, game->img.background_frame,
+			game->img.wall_border, pos);
+	else if (game->map.background_layer[y][x] == VERTICAL_WALL)
+		sl_insert_tile(game, game->img.background_frame,
+			game->img.wall_full, pos);
+	else if (game->map.background_layer[y][x] == EMPRY_FLOOR)
+		sl_insert_tile(game, game->img.background_frame, game->img.floor, pos);
+	else if (game->map.background_layer[y][x] == GRASS_FLOOR)
+		sl_insert_tile(game, game->img.background_frame,
+			game->img.grass_floor, pos);
+	else if (game->map.background_layer[y][x] == STEIN_FLOOR)
+		sl_insert_tile(game, game->img.background_frame,
+			game->img.stein_floor, pos);
+}
+
+static int	drow_background(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
 	while (y < game->map.height)
 	{
 		x = 0;
 		while (x < game->map.width)
 		{
-			pos.x = x;
-			pos.y = y;
-			if (game->map.background_layer[y][x] == HORIZONTAL_WALL)
-				sl_insert_tile(game, game->img.background_frame, game->img.wall_border, pos);
-			else if (game->map.background_layer[y][x] == VERTICAL_WALL)
-				sl_insert_tile(game, game->img.background_frame, game->img.wall_full, pos);
-			else if (game->map.background_layer[y][x] == EMPRY_FLOOR)
-				sl_insert_tile(game, game->img.background_frame, game->img.floor, pos);
-			else if (game->map.background_layer[y][x] == GRASS_FLOOR)
-				sl_insert_tile(game, game->img.background_frame, game->img.grass_floor, pos);
-			else if (game->map.background_layer[y][x] == STEIN_FLOOR)
-				sl_insert_tile(game, game->img.background_frame, game->img.stein_floor, pos);
+			setup_background_tile(game, y, x);
 			x++;
 		}
 		y++;
@@ -70,13 +86,7 @@ static int drow_background(t_game *game)
 
 int	sl_init_backgournd(t_game *game)
 {
-	// int	width;
-	// int	height;
-
 	sl_generate_background(game);
-
-	// width = game->map.width * game->tile_size;
-	// height = game->map.height * game->tile_size;
 	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
 	drow_background(game);
 	mlx_image_to_window(game->mlx, game->img.background_frame, 0, 0);
