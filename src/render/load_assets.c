@@ -12,7 +12,22 @@
 
 #include "internal.h"
 
-static int	init_textures(t_game *game)
+static int	check_allocation_textures(t_game *game)
+{
+	if (!game->textures.wall_full
+		|| !game->textures.wall_border
+		|| !game->textures.floor
+		|| !game->textures.grass_floor
+		|| !game->textures.stein_floor
+		|| !game->textures.empty)
+	{
+		sl_destroy_textures(game);
+		return (0);
+	}
+	return (1);
+}
+
+static int	allocate_textures(t_game *game)
 {
 	game->textures.wall_full = mlx_load_png("./textures/walls/wall.png");
 	game->textures.wall_border = mlx_load_png("./textures/walls/Walls-5.png");
@@ -21,11 +36,8 @@ static int	init_textures(t_game *game)
 			"./textures/floors/grass_floor.png");
 	game->textures.stein_floor = mlx_load_png(
 			"./textures/floors/stein_floor.png");
-	if (!game->textures.wall_full
-		|| !game->textures.wall_border
-		|| !game->textures.floor
-		|| !game->textures.grass_floor
-		|| !game->textures.stein_floor)
+	game->textures.empty = mlx_load_png("./textures/empty.png");
+	if (!check_allocation_textures(game))
 	{
 		sl_destroy_textures(game);
 		return (0);
@@ -35,7 +47,7 @@ static int	init_textures(t_game *game)
 
 int	sl_load_assets(t_game *game)
 {
-	if (!init_textures(game))
+	if (!allocate_textures(game))
 		return (0);
 	return (1);
 }

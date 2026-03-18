@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:18:46 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:46:23 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_textures
 	mlx_texture_t	*collect;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*player;
+	mlx_texture_t	*empty;
 }					t_textures;
 
 typedef struct s_img
