@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   generate_floor.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 10:24:04 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 10:25:04 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "internal.h"
 
-
-static t_map_tiles get_random_floor_tile()
+static t_map_tiles	get_random_floor_tile(void)
 {
-	int rand;
+	int	rand;
 
 	rand = sl_random_range(1, 8);
 	if (rand == 1)
 		return (GRASS_FLOOR);
 	if (rand == 2)
 		return (STEIN_FLOOR);
-
 	return (EMPRY_FLOOR);
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   generate_walls.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 10:24:00 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 10:24:33 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "internal.h"
 
 static int	is_horizontal_wall(t_game *game, int y, int x)
@@ -24,7 +36,6 @@ static void	update_wall_tile(t_game *game, int y, int x)
 	char	**grid;
 
 	grid = game->map.grid;
-
 	if (grid[y][x] == '1')
 		game->map.background_layer[y][x] = get_wall_tile(game, y, x);
 }
