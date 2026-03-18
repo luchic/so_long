@@ -6,11 +6,17 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:13:18 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:35:47 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:27:46 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
+
+int	sl_redraw_acttion_layer(t_game *game)
+{
+	(void) game;
+	return (1);
+}
 
 int	sl_init_action_frame(t_game *game)
 {

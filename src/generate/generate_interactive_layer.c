@@ -6,27 +6,15 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:25:10 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:19:57 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:29:59 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
- 
-
-static void	setup_collectable(t_game *game)
-{
-}
-
-static void	setup_player(t_game *game)
-{
-
-}
-
-
 
 int	sl_generate_interactive_layer(t_game *game)
 {
-	if (!sl_alloc_interactive_layers(game))
+	if (!sl_alloc_interactive_layer(game))
 	{
 		return (0);
 	}
