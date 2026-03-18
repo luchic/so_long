@@ -24,3 +24,7 @@
 
 #### Some staff for fun
 * Enemyes that can moving random
+
+
+#### BUGS.
+1) Segfualt on exit game
