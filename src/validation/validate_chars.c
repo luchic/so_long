@@ -37,8 +37,8 @@ static void	sl_track_cell(t_map *map, char c, int x, int y)
 
 int	sl_validate_chars(t_map *map)
 {
-	int	y;
-	int	x;
+	int		y;
+	int		x;
 	char	cell;
 
 	map->collectibles = 0;
@@ -58,9 +58,8 @@ int	sl_validate_chars(t_map *map)
 		}
 		y++;
 	}
-	if (map->exit_count != 1 || map->player_count != 1)
-		return (0);
-	if (map->collectibles < 1)
+	if ((map->exit_count != 1 || map->player_count != 1)
+		|| map->collectibles < 1)
 		return (0);
 	return (1);
 }

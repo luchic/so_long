@@ -21,3 +21,10 @@
 #### Add somthing.
 * I could add several floors
 * Add not only one floor textures
+
+#### Some staff for fun
+* Enemyes that can moving random
+
+
+#### BUGS.
+1) Segfualt on exit game

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   free_arrays.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:40:15 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/18 11:53:27 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 11:55:16 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_init_mlxwindow(t_game *game)
+void	free_araay_rows(char **array, int size)
 {
-	int	width;
-	int	height;
+	int	i;
 
-	width = game->map.width * game->tile_size;
-	height = game->map.height * game->tile_size;
-	game->mlx = mlx_init(width, height, SL_TITLE, true);
-	if (!game->mlx)
+	if (!array)
+		return ;
+	i = 0;
+	while (i < size)
 	{
-		return (0);
+		free(array[i]);
+		i++;
 	}
-	mlx_key_hook(game->mlx, sl_handle_key, game);
-	mlx_close_hook(game->mlx, sl_close_hook, game);
-	return (1);
+	free(array);
 }

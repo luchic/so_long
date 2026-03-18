@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:40:15 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/18 10:44:41 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 11:36:42 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_init_mlxwindow(t_game *game)
+int	sl_render_init(t_game *game)
 {
-	int	width;
-	int	height;
-
-	width = game->map.width * game->tile_size;
-	height = game->map.height * game->tile_size;
-	game->mlx = mlx_init(width, height, SL_TITLE, true);
-	if (!game->mlx)
-	{
+	if (!sl_load_assets(game))
 		return (0);
-	}
-	mlx_key_hook(game->mlx, sl_handle_key, game);
-	mlx_close_hook(game->mlx, sl_close_hook, game);
+	if (!sl_init_backgournd(game))
+		return (0);
+	if (!sl_init_action_frame(game))
+		return (0);
 	return (1);
 }

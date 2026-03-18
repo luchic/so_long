@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_tools.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 10:24:22 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/18 11:55:52 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "internal.h"
+
+char	**init_array(int height, int widht)
+{
+	char	**res;
+	int		i;
+
+	res = (char **)ft_calloc(height, sizeof(char *));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < height)
+	{
+		res[i] = ft_calloc(widht, sizeof(char));
+		if (!res[i])
+		{
+			free_araay_rows(res, i);
+			return (NULL);
+		}
+		i++;
+	}
+	return (res);
+}
+
+char	**copy_array(char **src, int height, int widht)
+{
+	int		i;
+	int		j;
+	char	**res;
+
+	if (!src)
+		return (NULL);
+	res = init_array(height, widht);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < height)
+	{
+		j = 0;
+		while (j < widht)
+		{
+			res[i][j] = src[i][j];
+			j++;
+		}
+		i++;
+	}
+	return (res);
+}

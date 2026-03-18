@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2025/09/28 22:01:08 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:06:14 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,35 @@
 
 # include "../mlx42/include/MLX42/MLX42.h"
 
+typedef enum e_map_tile
+{
+	EMPTY,
+	EMPTY_FLOOR,
+	GRASS_FLOOR,
+	STEIN_FLOOR,
+	VERTICAL_WALL,
+	HORIZONTAL_WALL,
+	PLAYER,
+	ITEM,
+	EXIT,
+}	t_map_tiles;
+
 typedef struct s_pos
 {
 	int	x;
 	int	y;
 }	t_pos;
 
+// Map shouldn't contain informaiont about.
+// background_layer / interactive_layer are declared as char **,
+// but the code stores values from t_map_tiles (an enum).
+// Using t_map_tiles ** (or a fixed-width integer type) will make
+// the intent explicit and avoid surprises if the enum grows beyond char range.
 typedef struct s_map
 {
 	char	**grid;
+	char	**background_layer;
+	char	**interactive_layer;
 	int		width;
 	int		height;
 	int		collectibles;
@@ -42,33 +62,39 @@ typedef struct s_player
 
 typedef struct s_textures
 {
-	mlx_texture_t	*wall_tex;
-	mlx_texture_t	*floor_tex;
+	mlx_texture_t	*wall_full;
+	mlx_texture_t	*wall_border;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*grass_floor;
+	mlx_texture_t	*stein_floor;
 	mlx_texture_t	*collect_tex;
 	mlx_texture_t	*exit_tex;
 	mlx_texture_t	*player_tex;
-} t_textures;
-
+}					t_textures;
 
 typedef struct s_img
 {
-	mlx_image_t	*wall_img;
-	mlx_image_t	*floor_img;
-	mlx_image_t	*collect_img;
-	mlx_image_t	*exit_img;
-	mlx_image_t	*player_img;
-	mlx_image_t	*frame;
-}	t_img;
+	mlx_image_t		*wall_full;
+	mlx_image_t		*wall_border;
+	mlx_image_t		*floor;
+	mlx_image_t		*stein_floor;
+	mlx_image_t		*grass_floor;
+	mlx_image_t		*collect_img;
+	mlx_image_t		*exit_img;
+	mlx_image_t		*player_img;
+	mlx_image_t		*background_frame;
+	mlx_image_t		*frame;
+}					t_img;
 
 typedef struct s_game
 {
-	mlx_t		*mlx;
-	t_map		map;
-	t_player	player;
-	t_img		img;
-	t_textures  textures;
-	int			tile_size;
-	int			game_over;
-}	t_game;
+	mlx_t			*mlx;
+	t_map			map;
+	t_player		player;
+	t_img			img;
+	t_textures		textures;
+	int				tile_size;
+	int				game_over;
+}					t_game;
 
 #endif
