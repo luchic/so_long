@@ -1,6 +1,6 @@
 #include "internal.h"
 
-void	sl_iterate_layer(t_game *game, void (*f)(t_game*, int, int))
+void	sl_tile_iterate(t_game *game, void (*f)(t_game*, int, int))
 {
 	int	i;
 	int	j;

@@ -12,5 +12,5 @@ static void	set_interatvie_tiles(t_game *game, int y, int x)
 
 void	sl_fill_interactive_layer(t_game *game)
 {
-	sl_iterate_layer(game, set_interatvie_tiles);
+	sl_tile_iterate(game, set_interatvie_tiles);
 }

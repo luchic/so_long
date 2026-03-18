@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:04 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:24:44 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:58:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ static void	fill_floor_tile(t_game *game, int y, int x)
 
 void	sl_fill_floor_tiles(t_game *game)
 {
-	sl_iterate_layer(game, fill_floor_tile);
+	sl_tile_iterate(game, fill_floor_tile);
 }

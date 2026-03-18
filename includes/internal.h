@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:53:06 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:58:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		sl_draw_interative_frame(t_game *game);
 // =================== Map generation =======================
 int		sl_generate_interactive_layer(t_game *game);
 int		sl_alloc_interactive_layer(t_game *game);
-void	sl_iterate_layer(t_game *game, void (*f)(t_game*, int, int));
+void	sl_tile_iterate(t_game *game, void (*f)(t_game*, int, int));
 void	sl_fill_interactive_layer(t_game *game);
 void	sl_fill_floor_tiles(t_game *game);
 void	sl_fill_wall_tiles(t_game *game);

@@ -10,6 +10,6 @@ int	sl_alloc_interactive_layer(t_game *game)
 	game->map.interactive_layer = init_array(game->map.height, game->map.width);
 	if (!game->map.interactive_layer)
 		return (0);
-	sl_iterate_layer(game, clear_interactive_layer);
+	sl_tile_iterate(game, clear_interactive_layer);
 	return (1);
 }
