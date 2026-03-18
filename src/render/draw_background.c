@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:14:10 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:17:53 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:21:39 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	sl_insert_tile(
 	tile_size = game->tile_size;
 	src = (uint32_t *)tile->pixels;
 	dst = (uint32_t *)frame->pixels;
-
 	while (i < tile_size)
 	{
 		j = 0;

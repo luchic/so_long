@@ -23,7 +23,7 @@ static uint32_t	sl_cell_color(char cell)
 	return (0x3C3F41FF);
 }
 
-static void	sl_draw_rect(mlx_image_t *img, int x, int y, int size,
+static void	sl_draw_rect(mlx_image_t *img, t_pos pixel_position, int size,
 		uint32_t color)
 {
 	int	dx;
@@ -35,7 +35,8 @@ static void	sl_draw_rect(mlx_image_t *img, int x, int y, int size,
 		dx = 0;
 		while (dx < size)
 		{
-			mlx_put_pixel(img, x + dx, y + dy, color);
+			mlx_put_pixel(img, pixel_position.x + dx,
+				pixel_position.y + dy, color);
 			dx++;
 		}
 		dy++;
@@ -44,12 +45,15 @@ static void	sl_draw_rect(mlx_image_t *img, int x, int y, int size,
 
 static void	sl_draw_cell(t_game *game, int x, int y, uint32_t color)
 {
-	int	px;
-	int	py;
+	t_pos	pixel_position;
+	int		px;
+	int		py;
 
 	px = x * game->tile_size;
 	py = y * game->tile_size;
-	sl_draw_rect(game->img.frame, px, py, game->tile_size, color);
+	pixel_position.x = px;
+	pixel_position.y = py;
+	sl_draw_rect(game->img.frame, pixel_position, game->tile_size, color);
 }
 
 void	sl_draw_map(t_game *game)

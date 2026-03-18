@@ -12,23 +12,30 @@
 
 #include "internal.h"
 
+// TODO: add more sutiuble function with checking
 static int	init_textures(t_game *game)
 {
 	game->textures.wall_full = mlx_load_png("./textures/walls/wall.png");
 	game->textures.wall_border = mlx_load_png("./textures/walls/Walls-5.png");
 	game->textures.floor = mlx_load_png("./textures/floors/floor.png");
-	game->textures.grass_floor = mlx_load_png("./textures/floors/grass_floor.png");
-	game->textures.stein_floor = mlx_load_png("./textures/floors/stein_floor.png");
+	game->textures.grass_floor = mlx_load_png(
+			"./textures/floors/grass_floor.png");
+	game->textures.stein_floor = mlx_load_png(
+			"./textures/floors/stein_floor.png");
 	return (1);
 }
 
-static int inti_images_on_textures(t_game *game)
+static int	inti_images_on_textures(t_game *game)
 {
 	game->img.floor = mlx_texture_to_image(game->mlx, game->textures.floor);
-	game->img.grass_floor = mlx_texture_to_image(game->mlx, game->textures.grass_floor);
-	game->img.stein_floor = mlx_texture_to_image(game->mlx, game->textures.stein_floor);
-	game->img.wall_full = mlx_texture_to_image(game->mlx, game->textures.wall_full);
-	game->img.wall_border = mlx_texture_to_image(game->mlx, game->textures.wall_border);
+	game->img.grass_floor = mlx_texture_to_image(game->mlx,
+			game->textures.grass_floor);
+	game->img.stein_floor = mlx_texture_to_image(game->mlx,
+			game->textures.stein_floor);
+	game->img.wall_full = mlx_texture_to_image(game->mlx,
+			game->textures.wall_full);
+	game->img.wall_border = mlx_texture_to_image(game->mlx,
+			game->textures.wall_border);
 	return (1);
 }
 
