@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:55:26 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:59:41 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sl_destroy_img(t_game *game);
 int		sl_load_assets(t_game *game);
 int		sl_init_action_frame(t_game *game);
 
-void	sl_run_map_generation(t_game *game);
+int		sl_run_map_generation(t_game *game);
 
 char	**init_array(int height, int widht);
 char	**copy_array(char **src, int height, int widht);

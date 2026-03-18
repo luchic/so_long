@@ -48,7 +48,10 @@ int	sl_init_game(t_game *game, const char *path)
 		sl_free_game(game);
 		return (0);
 	}
-	sl_run_map_generation(game);
+	if (!sl_run_map_generation(game))
+	{
+		return (0);
+	}
 	if (!sl_render_init(game))
 	{
 		return (0);
