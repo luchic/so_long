@@ -45,9 +45,9 @@ static int	allocate_textures(t_game *game)
 			"./textures/iteractive/collectable.png");
 	game->textures.player = mlx_load_png("./textures/iteractive/player.png");
 	game->textures.exit_close = mlx_load_png(
-			"./textures/iteractive/exit_opend.png");
-	game->textures.exit_open = mlx_load_png(
 			"./textures/iteractive/exit_closed.png");
+	game->textures.exit_open = mlx_load_png(
+			"./textures/iteractive/exit_opend.png");
 	if (!check_allocation_textures(game))
 	{
 		sl_destroy_textures(game);
