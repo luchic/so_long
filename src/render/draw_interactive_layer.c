@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:13:18 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 11:11:02 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:17:33 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	draw_interactive_tile(t_game *game, int y, int x)
 	layer = game->map.interactive_layer;
 	tile_position.x = x;
 	tile_position.y = y;
-	if (layer[y][x] == EXIT)
+	if (layer[y][x] == EXIT_CLOSED)
 		sl_insert_tile(game, frame, game->textures.exit_close, tile_position);
 	else if (layer[y][x] == EXIT_OPEN)
 		sl_insert_tile(game, frame, game->textures.exit_open, tile_position);
