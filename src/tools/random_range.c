@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:18 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:13:24 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:33:08 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ int	sl_random_range(int min, int max)
 	}
 	if (min == max)
 		return (min);
-	if (gettimeofday(&tv, NULL) == 0)
-		state ^= (tv.tv_sec << 20) ^ tv.tv_usec;
-	if (state == 0)
-		state = 1;
-	srand((unsigned int)state);
 	state = rand();
 	range = (long)max - (long)min + 1;
 	return (min + (state % range));
