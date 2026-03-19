@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 19:40:21 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 21:00:32 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_animation
 typedef struct s_textures
 {
 	t_animation		flame;
+	t_animation		brazier;
 	mlx_texture_t	*wall_full;
 	mlx_texture_t	*wall_border;
 	mlx_texture_t	*floor;
