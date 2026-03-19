@@ -14,7 +14,7 @@
 
 void	sl_check_win(t_game *game, int nx, int ny)
 {
-	if (game->map.background_layer[ny][nx] != EXIT_OPEN)
+	if (game->map.interactive_layer[ny][nx] != EXIT_OPEN)
 		return ;
 	if (game->player.collected != game->map.collectibles)
 		return ;
