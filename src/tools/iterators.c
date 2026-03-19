@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_render.c                                      :+:      :+:    :+:   */
+/*   iterators.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:44:41 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 16:32:01 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/19 10:13:28 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/19 10:13:29 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_render_init(t_game *game)
+void	sl_tile_iterate(t_game *game, void (*f)(t_game*, int, int))
 {
-	if (!sl_load_assets(game))
-		return (0);
-	if (!sl_init_backgournd(game))
-		return (0);
-	if (!sl_draw_interactive_frame(game))
-		return (0);
-	return (1);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map.height)
+	{
+		j = 0;
+		while (j < game->map.width)
+		{
+			f(game, i, j);
+			j++;
+		}
+		i++;
+	}
 }

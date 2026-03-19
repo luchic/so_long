@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:04 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 12:06:30 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:58:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,12 @@ static t_map_tiles	get_random_floor_tile(void)
 	return (EMPTY_FLOOR);
 }
 
-int	sl_init_floor(t_game *game)
+static void	fill_floor_tile(t_game *game, int y, int x)
 {
-	int	i;
-	int	j;
+	game->map.background_layer[y][x] = get_random_floor_tile();
+}
 
-	game->map.background_layer = init_array(game->map.height, game->map.width);
-	if (!game->map.background_layer)
-		return (0);
-	i = 0;
-	while (i < game->map.height)
-	{
-		j = 0;
-		while (j < game->map.width)
-		{
-			game->map.background_layer[i][j] = get_random_floor_tile();
-			j++;
-		}
-		i++;
-	}
-	return (1);
+void	sl_fill_floor_tiles(t_game *game)
+{
+	sl_tile_iterate(game, fill_floor_tile);
 }

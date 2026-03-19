@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_action_layer.c                            :+:      :+:    :+:   */
+/*   allocate_interactive_layer.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:25:10 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:25:13 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/19 10:13:16 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/19 10:13:17 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_generate_action_layer(t_game *game)
+static void	clear_interactive_layer(t_game *game, int y, int x)
 {
-	(void) game;
-	return (0);
+	game->map.interactive_layer[y][x] = EMPTY;
+}
+
+int	sl_alloc_interactive_layer(t_game *game)
+{
+	game->map.interactive_layer = init_array(game->map.height, game->map.width);
+	if (!game->map.interactive_layer)
+		return (0);
+	sl_tile_iterate(game, clear_interactive_layer);
+	return (1);
 }

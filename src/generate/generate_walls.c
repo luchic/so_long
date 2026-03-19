@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 10:24:33 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:58:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_map_tiles	get_wall_tile(t_game *game, int y, int x)
 	return (VERTICAL_WALL);
 }
 
-static void	update_wall_tile(t_game *game, int y, int x)
+static void	fill_wall_tile(t_game *game, int y, int x)
 {
 	char	**grid;
 
@@ -40,21 +40,7 @@ static void	update_wall_tile(t_game *game, int y, int x)
 		game->map.background_layer[y][x] = get_wall_tile(game, y, x);
 }
 
-int	sl_optimize_border_tiles(t_game *game)
+void	sl_fill_wall_tiles(t_game *game)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map.height)
-	{
-		j = 0;
-		while (j < game->map.width)
-		{
-			update_wall_tile(game, i, j);
-			j++;
-		}
-		i++;
-	}
-	return (1);
+	sl_tile_iterate(game, fill_wall_tile);
 }

@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:48:28 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:30:59 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sl_free_texture(mlx_texture_t	**texture)
 {
-	if (texture || *texture)
+	if (texture && *texture)
 	{
 		mlx_delete_texture(*texture);
 		*texture = NULL;
@@ -28,14 +28,16 @@ void	sl_destroy_textures(t_game *game)
 	sl_free_texture(&(game->textures.floor));
 	sl_free_texture(&(game->textures.grass_floor));
 	sl_free_texture(&(game->textures.stein_floor));
-	sl_free_texture(&(game->textures.collect_tex));
-	sl_free_texture(&(game->textures.exit_tex));
-	sl_free_texture(&(game->textures.player_tex));
+	sl_free_texture(&(game->textures.collect));
+	sl_free_texture(&(game->textures.player));
+	sl_free_texture(&(game->textures.empty));
+	sl_free_texture(&(game->textures.exit_close));
+	sl_free_texture(&(game->textures.exit_open));
 }
 
 void	sl_free_img(t_game *game, mlx_image_t	**img)
 {
-	if (img || *img)
+	if (img && *img)
 	{
 		mlx_delete_image(game->mlx, *img);
 		*img = NULL;
@@ -44,14 +46,6 @@ void	sl_free_img(t_game *game, mlx_image_t	**img)
 
 void	sl_destroy_img(t_game *game)
 {
-	sl_free_img(game, &(game->img.wall_full));
-	sl_free_img(game, &(game->img.wall_border));
-	sl_free_img(game, &(game->img.floor));
-	sl_free_img(game, &(game->img.grass_floor));
-	sl_free_img(game, &(game->img.stein_floor));
-	sl_free_img(game, &(game->img.collect_img));
-	sl_free_img(game, &(game->img.exit_img));
-	sl_free_img(game, &(game->img.player_img));
 	sl_free_img(game, &(game->img.background_frame));
-	sl_free_img(game, &(game->img.frame));
+	sl_free_img(game, &(game->img.interactive_frame));
 }

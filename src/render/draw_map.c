@@ -53,7 +53,8 @@ static void	sl_draw_cell(t_game *game, int x, int y, uint32_t color)
 	py = y * game->tile_size;
 	pixel_position.x = px;
 	pixel_position.y = py;
-	sl_draw_rect(game->img.frame, pixel_position, game->tile_size, color);
+	sl_draw_rect(game->img.interactive_frame,
+		pixel_position, game->tile_size, color);
 }
 
 void	sl_draw_map(t_game *game)
