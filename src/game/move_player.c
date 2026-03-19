@@ -12,7 +12,6 @@
 
 #include "internal.h"
 
-
 void	sl_move_player(t_game *game, int dx, int dy)
 {
 	int	nx;
