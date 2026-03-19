@@ -29,17 +29,17 @@ static int	is_interactive(t_game *game, int y, int x)
 	{
 		return (0);
 	}
-	if (sl_isplayer(game->map.background_layer[y - 1][x])
-		|| sl_iscollectable(game->map.background_layer[y - 1][x]))
+	if (sl_isplayer(game, y, x)
+		|| sl_iscollectable(game->map.interactive_layer[y - 1][x]))
 		return (1);
-	if (sl_isplayer(game->map.background_layer[y + 1][x])
-		|| sl_iscollectable(game->map.background_layer[y + 1][x]))
+	if (sl_isplayer(game, y, x)
+		|| sl_iscollectable(game->map.interactive_layer[y + 1][x]))
 		return (1);
-	if (sl_isplayer(game->map.background_layer[y][x - 1])
-		|| sl_iscollectable(game->map.background_layer[y][x - 1]))
+	if (sl_isplayer(game, y, x)
+		|| sl_iscollectable(game->map.interactive_layer[y][x - 1]))
 		return (1);
-	if (sl_isplayer(game->map.background_layer[y][x + 1])
-		|| sl_iscollectable(game->map.background_layer[y][x + 1]))
+	if (sl_isplayer(game, y, x)
+		|| sl_iscollectable(game->map.interactive_layer[y][x + 1]))
 		return (1);
 	return (0);
 }
@@ -50,7 +50,7 @@ static void	generate_object(t_game *game, int y, int x)
 
 	if (game->map.animation_layer[y][x] == NONPLACEABLE)
 		return ;
-	probobilty = sl_random_range(0, 100);
+	probobilty = sl_random_range(0, 550);
 	if (is_corner(game, y, x))
 	{
 		if (probobilty < 35)
@@ -73,13 +73,15 @@ static void	generate_object(t_game *game, int y, int x)
 
 static void	fill_animation_tile(t_game *game, int y, int x)
 {
-	if (sl_iswall_tile(game->map.interactive_layer[y][x])
-		|| game->map.interactive_layer[y][x] == PLAYER
+	if (sl_iswall_tile(game->map.background_layer[y][x])
+		|| sl_isplayer(game, y, x)
 		|| game->map.interactive_layer[y][x] == COLLECTABLE
 		|| game->map.interactive_layer[y][x] == EXIT_CLOSED)
 	{
 		game->map.animation_layer[y][x] = NONPLACEABLE;
 	}
+	else
+		game->map.animation_layer[y][x] = NONE;
 	generate_object(game, y, x);
 }
 
