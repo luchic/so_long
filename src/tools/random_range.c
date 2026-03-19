@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:18 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:33:08 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:36:59 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 
 int	sl_random_range(int min, int max)
 {
-	struct timeval	tv;
 	static long		state;
 	long			range;
 	int				tmp;

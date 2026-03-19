@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 16:26:31 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:17:33 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef enum e_map_tile
 	HORIZONTAL_WALL,
 	PLAYER,
 	COLLECTABLE,
-	EXIT,
+	EXIT_CLOSED,
+	EXIT_OPEN,
 }	t_map_tiles;
 
 typedef struct s_pos
