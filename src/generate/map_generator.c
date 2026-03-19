@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:23:53 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 15:29:34 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:17:14 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	sl_run_map_generation(t_game *game)
 	if (!sl_generate_background(game))
 		return (0);
 	if (!sl_generate_interactive_layer(game))
+		return (0);
+	if (!sl_generate_animation_layer(game))
 		return (0);
 	return (1);
 }

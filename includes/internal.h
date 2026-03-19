@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 13:08:58 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:18:03 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,11 @@ void	sl_tile_iterate(t_game *game, void (*f)(t_game*, int, int));
 void	sl_fill_interactive_layer(t_game *game);
 void	sl_fill_floor_tiles(t_game *game);
 void	sl_fill_wall_tiles(t_game *game);
+
+void	sl_fill_animation_layer(t_game *game);
+int		sl_generate_animation_layer(t_game *game);
+int		sl_alloc_animation_layer(t_game *game);
+int		sl_iswall_tile(char tile);
+int		sl_isplayer(char tile);
+int		sl_iscollectable(char tile);
 #endif

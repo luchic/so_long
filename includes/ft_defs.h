@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 11:17:33 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 19:40:21 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ typedef enum e_map_tile
 	EXIT_OPEN,
 }	t_map_tiles;
 
+typedef enum e_animated
+{
+	NONPLACEABLE,
+	NONE,
+	FLAME,
+	BRAZIER,
+}	e_animated;
+
+
 typedef struct s_pos
 {
 	int	x;
@@ -45,6 +54,7 @@ typedef struct s_map
 	char	**grid;
 	char	**background_layer;
 	char	**interactive_layer;
+	char	**animation_layer;
 	int		width;
 	int		height;
 	int		collectibles;
@@ -61,8 +71,16 @@ typedef struct s_player
 	int		collected;
 }	t_player;
 
+typedef struct s_animation
+{
+	int				size;
+	mlx_texture_t	**frames;
+}	t_animation;
+
+
 typedef struct s_textures
 {
+	t_animation		flame;
 	mlx_texture_t	*wall_full;
 	mlx_texture_t	*wall_border;
 	mlx_texture_t	*floor;
@@ -79,6 +97,7 @@ typedef struct s_img
 {
 	mlx_image_t		*background_frame;
 	mlx_image_t		*interactive_frame;
+	mlx_image_t		*animation_frame;
 }					t_img;
 
 typedef struct s_game
@@ -90,6 +109,7 @@ typedef struct s_game
 	t_textures		textures;
 	int				tile_size;
 	int				game_over;
+	double			last_frame_time;
 }					t_game;
 
 #endif
