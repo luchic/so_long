@@ -19,15 +19,15 @@ static int	is_movable_tile(t_game *game, int ny, int nx)
 	tile = game->map.background_layer[ny][nx];
 	if (tile == HORIZONTAL_WALL || tile == VERTICAL_WALL)
 		return (0);
-	if (tile == EXIT_CLOSED)
-		return (0);
 	return (1);
 }
 
 static void	replase_clased_door(t_game *game, int y, int x)
 {
-	if (game->map.background_layer[y][x] == EXIT_CLOSED)
-		game->map.background_layer[y][x] = EXIT_OPEN;
+	if (game->map.interactive_layer[y][x] == EXIT_CLOSED)
+	{
+		game->map.interactive_layer[y][x] = EXIT_OPEN;
+	}
 }
 
 static void	setup_open_door(t_game *game)
