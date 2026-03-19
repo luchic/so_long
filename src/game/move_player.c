@@ -36,5 +36,5 @@ void	sl_move_player(t_game *game, int dx, int dy)
 	game->player.moves++;
 	ft_printf("Moves: %d\n", game->player.moves);
 	sl_check_win(game, nx, ny);
-	sl_redraw(game);
+	sl_redraw_interactive_frame(game);
 }
