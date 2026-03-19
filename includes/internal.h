@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 11:14:02 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 13:08:58 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	sl_draw_interactive_frame(t_game *game);
 int		sl_init_background_frame(t_game *game);
 int		sl_init_interactive_frame(t_game *game);
 void	sl_redraw_interactive_frame(t_game *game);
-
 
 // =================== Map generation =======================
 int		sl_generate_interactive_layer(t_game *game);
