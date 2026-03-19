@@ -12,12 +12,6 @@
 
 #include "internal.h"
 
-static int	sl_is_exit_blocked(t_game *game, int nx, int ny)
-{
-	if (game->map.grid[ny][nx] != 'E')
-		return (0);
-	return (game->player.collected != game->map.collectibles);
-}
 
 void	sl_move_player(t_game *game, int dx, int dy)
 {
@@ -27,8 +21,6 @@ void	sl_move_player(t_game *game, int dx, int dy)
 	nx = game->player.pos.x + dx;
 	ny = game->player.pos.y + dy;
 	if (!sl_can_move(game, nx, ny))
-		return ;
-	if (sl_is_exit_blocked(game, nx, ny))
 		return ;
 	sl_try_collect(game, nx, ny);
 	game->player.pos.x = nx;

@@ -22,17 +22,11 @@ static int	is_movable_tile(t_game *game, int ny, int nx)
 	return (1);
 }
 
-static void	replase_clased_door(t_game *game, int y, int x)
+static int	is_door_block_move(t_game *game, int y, int x)
 {
 	if (game->map.interactive_layer[y][x] == EXIT_CLOSED)
-	{
-		game->map.interactive_layer[y][x] = EXIT_OPEN;
-	}
-}
-
-static void	setup_open_door(t_game *game)
-{
-	sl_tile_iterate(game, replase_clased_door);
+		return (1);
+	return (0);
 }
 
 int	sl_can_move(t_game *game, int nx, int ny)
@@ -43,16 +37,7 @@ int	sl_can_move(t_game *game, int nx, int ny)
 		return (0);
 	if (!is_movable_tile(game, ny, nx))
 		return (0);
+	if (is_door_block_move(game, ny, nx))
+		return (0);
 	return (1);
-}
-
-void	sl_try_collect(t_game *game, int nx, int ny)
-{
-	if (game->map.interactive_layer[ny][nx] == COLLECTABLE)
-	{
-		game->player.collected++;
-		game->map.interactive_layer[ny][nx] = EMPTY;
-		if (game->player.collected == game->map.collectibles)
-			setup_open_door(game);
-	}
 }
