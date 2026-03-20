@@ -14,7 +14,8 @@
 
 static int	sl_is_valid_cell(char c)
 {
-	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P');
+	return (c == '0' || c == '1' || c == 'C'
+			|| c == 'E' || c == 'P' || c == 'F');
 }
 
 static void	sl_track_cell(t_map *map, char c, int x, int y)
