@@ -16,10 +16,10 @@ void	sl_free_map(t_map *map)
 {
 	if (!map)
 		return ;
-	free_araay_rows(map->grid, map->height);
-	free_araay_rows(map->animation_layer, map->height);
-	free_araay_rows(map->background_layer, map->height);
-	free_araay_rows(map->interactive_layer, map->height);
+	sl_free_array_rows(map->grid, map->height);
+	sl_free_array_rows(map->animation_layer, map->height);
+	sl_free_array_rows(map->background_layer, map->height);
+	sl_free_array_rows(map->interactive_layer, map->height);
 	map->grid = NULL;
 	map->height = 0;
 	map->width = 0;

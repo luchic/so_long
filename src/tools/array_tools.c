@@ -6,13 +6,13 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:24:22 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/18 11:55:52 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:56:51 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-char	**init_array(int height, int widht)
+char	**sl_init_array(int height, int width)
 {
 	char	**res;
 	int		i;
@@ -23,10 +23,10 @@ char	**init_array(int height, int widht)
 	i = 0;
 	while (i < height)
 	{
-		res[i] = ft_calloc(widht, sizeof(char));
+		res[i] = ft_calloc(width, sizeof(char));
 		if (!res[i])
 		{
-			free_araay_rows(res, i);
+			sl_free_array_rows(res, i);
 			return (NULL);
 		}
 		i++;
@@ -34,7 +34,7 @@ char	**init_array(int height, int widht)
 	return (res);
 }
 
-char	**copy_array(char **src, int height, int widht)
+char	**sl_copy_array(char **src, int height, int width)
 {
 	int		i;
 	int		j;
@@ -42,14 +42,14 @@ char	**copy_array(char **src, int height, int widht)
 
 	if (!src)
 		return (NULL);
-	res = init_array(height, widht);
+	res = sl_init_array(height, width);
 	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < height)
 	{
 		j = 0;
-		while (j < widht)
+		while (j < width)
 		{
 			res[i][j] = src[i][j];
 			j++;

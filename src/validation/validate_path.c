@@ -37,12 +37,12 @@ int	sl_validate_path(t_map *map)
 {
 	char	**copy;
 
-	copy = copy_array(map->grid, map->height, map->width);
+	copy = sl_copy_array(map->grid, map->height, map->width);
 	if (!copy)
 		return (0);
 	sl_flood_fill(copy, map->width, map->height, map->player_start);
 	if (sl_has_unreached(copy, map->width, map->height))
-		return (free_araay_rows(copy, map->height), 0);
-	free_araay_rows(copy, map->height);
+		return (sl_free_array_rows(copy, map->height), 0);
+	sl_free_array_rows(copy, map->height);
 	return (1);
 }

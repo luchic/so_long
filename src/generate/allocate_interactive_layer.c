@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:13:16 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:13:17 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:51:45 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	clear_interactive_layer(t_game *game, int y, int x)
 
 int	sl_alloc_interactive_layer(t_game *game)
 {
-	game->map.interactive_layer = init_array(game->map.height, game->map.width);
+	game->map.interactive_layer = sl_init_array(game->map.height, game->map.width);
 	if (!game->map.interactive_layer)
 		return (0);
 	sl_tile_iterate(game, clear_interactive_layer);
