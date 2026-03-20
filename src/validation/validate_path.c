@@ -25,7 +25,7 @@ char	**sl_dup_grid(char **grid, int height)
 	{
 		copy[i] = ft_strdup(grid[i]);
 		if (!copy[i])
-			return (sl_free_grid(copy, i), NULL);
+			return (free_araay_rows(copy, i), NULL);
 		i++;
 	}
 	return (copy);
@@ -60,7 +60,7 @@ int	sl_validate_path(t_map *map)
 		return (0);
 	sl_flood_fill(copy, map->width, map->height, map->player_start);
 	if (sl_has_unreached(copy, map->width, map->height))
-		return (sl_free_grid(copy, map->height), 0);
-	sl_free_grid(copy, map->height);
+		return (free_araay_rows(copy, map->height), 0);
+	free_araay_rows(copy, map->height);
 	return (1);
 }
