@@ -5,7 +5,6 @@ void	sl_check_lose(t_game *game, int nx, int ny)
 {
 	if (game->map.interactive_layer[ny][nx] == FOE)
 	{
-		printf("lose game\n");
 		sl_close_game(game);
 	}
 }
