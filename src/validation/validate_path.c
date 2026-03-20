@@ -12,8 +12,7 @@
 
 #include "internal.h"
 
-
-static int	sl_has_unreached(char **grid, int width, int height)
+static int	has_unreached(char **grid, int width, int height)
 {
 	int	y;
 	int	x;
@@ -41,7 +40,7 @@ int	sl_validate_path(t_map *map)
 	if (!copy)
 		return (0);
 	sl_flood_fill(copy, map->width, map->height, map->player_start);
-	if (sl_has_unreached(copy, map->width, map->height))
+	if (has_unreached(copy, map->width, map->height))
 		return (sl_free_array_rows(copy, map->height), 0);
 	sl_free_array_rows(copy, map->height);
 	return (1);
