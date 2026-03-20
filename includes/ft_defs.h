@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 21:00:32 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:27:44 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ typedef enum e_animated
 	NONE,
 	FLAME,
 	BRAZIER,
-}	e_animated;
-
+}	t_animated;
 
 typedef struct s_pos
 {
@@ -76,7 +75,6 @@ typedef struct s_animation
 	int				size;
 	mlx_texture_t	**frames;
 }	t_animation;
-
 
 typedef struct s_textures
 {
