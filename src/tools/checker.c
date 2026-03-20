@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:26:42 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:26:43 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:29:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	sl_iswall_tile(char tile)
 }
 
 int	sl_isplayer(t_game *game, int y, int x)
-{	
+{
 	if (game->player.pos.y == y && game->player.pos.x == x)
 		return (1);
 	return (0);

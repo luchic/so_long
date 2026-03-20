@@ -6,14 +6,14 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:25:03 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:26:13 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:29:55 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
 static void	update_tile(t_game *game, int y, int x)
-{	
+{
 	static unsigned long	iter = -1;
 	t_pos					pos;
 
