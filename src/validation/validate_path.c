@@ -12,24 +12,6 @@
 
 #include "internal.h"
 
-char	**sl_dup_grid(char **grid, int height)
-{
-	char	**copy;
-	int		i;
-
-	copy = ft_calloc(height + 1, sizeof(char *));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (i < height)
-	{
-		copy[i] = ft_strdup(grid[i]);
-		if (!copy[i])
-			return (free_araay_rows(copy, i), NULL);
-		i++;
-	}
-	return (copy);
-}
 
 static int	sl_has_unreached(char **grid, int width, int height)
 {
@@ -55,7 +37,7 @@ int	sl_validate_path(t_map *map)
 {
 	char	**copy;
 
-	copy = sl_dup_grid(map->grid, map->height);
+	copy = copy_array(map->grid, map->height, map->width);
 	if (!copy)
 		return (0);
 	sl_flood_fill(copy, map->width, map->height, map->player_start);
