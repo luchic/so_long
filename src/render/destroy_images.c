@@ -6,11 +6,28 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:30:59 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:06:28 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
+
+void	sl_free_animation_texture(t_animation *animation)
+{
+	int				i;
+	mlx_texture_t	**frames;
+
+	i = 0;
+	frames = animation->frames;
+	while (i < animation->size)
+	{
+		sl_free_texture(&(frames[i]));
+		i++;
+	}
+	free(animation->frames);
+	animation->frames = NULL;
+	animation->size = 0;
+}
 
 void	sl_free_texture(mlx_texture_t	**texture)
 {
@@ -33,6 +50,8 @@ void	sl_destroy_textures(t_game *game)
 	sl_free_texture(&(game->textures.empty));
 	sl_free_texture(&(game->textures.exit_close));
 	sl_free_texture(&(game->textures.exit_open));
+	sl_free_animation_texture(&(game->textures.flame));
+	sl_free_animation_texture(&(game->textures.brazier));
 }
 
 void	sl_free_img(t_game *game, mlx_image_t	**img)
@@ -48,4 +67,5 @@ void	sl_destroy_img(t_game *game)
 {
 	sl_free_img(game, &(game->img.background_frame));
 	sl_free_img(game, &(game->img.interactive_frame));
+	sl_free_img(game, &(game->img.animation_frame));
 }

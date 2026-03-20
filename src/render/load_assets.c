@@ -60,5 +60,9 @@ int	sl_load_assets(t_game *game)
 {
 	if (!allocate_textures(game))
 		return (0);
+	if (!sl_load_brazier_asset(game))
+		return (0);
+	if (!sl_load_flame_asset(game))
+		return (0);
 	return (1);
 }

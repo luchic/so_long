@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 15:55:13 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/20 16:26:42 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/20 16:29:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_init_mlxwindow(t_game *game)
+int	sl_iswall_tile(char tile)
 {
-	int	width;
-	int	height;
+	return (tile == HORIZONTAL_WALL || tile == VERTICAL_WALL);
+}
 
-	width = game->map.width * game->tile_size;
-	height = game->map.height * game->tile_size;
-	game->mlx = mlx_init(width, height, SL_TITLE, true);
-	if (!game->mlx)
-	{
-		return (0);
-	}
-	mlx_loop_hook(game->mlx, sl_render_animation_frame, game);
-	mlx_key_hook(game->mlx, sl_handle_key, game);
-	mlx_close_hook(game->mlx, sl_close_hook, game);
-	return (1);
+int	sl_isplayer(t_game *game, int y, int x)
+{
+	if (game->player.pos.y == y && game->player.pos.x == x)
+		return (1);
+	return (0);
+}
+
+int	sl_iscollectable(char tile)
+{
+	return (tile == COLLECTABLE);
 }

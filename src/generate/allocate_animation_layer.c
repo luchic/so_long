@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   allocate_animation_layer.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 15:55:13 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/20 16:26:38 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/20 16:26:39 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-int	sl_init_mlxwindow(t_game *game)
+static void	clear_animation_layer(t_game *game, int y, int x)
 {
-	int	width;
-	int	height;
+	game->map.animation_layer[y][x] = NONE;
+}
 
-	width = game->map.width * game->tile_size;
-	height = game->map.height * game->tile_size;
-	game->mlx = mlx_init(width, height, SL_TITLE, true);
-	if (!game->mlx)
-	{
+int	sl_alloc_animation_layer(t_game *game)
+{
+	game->map.animation_layer = init_array(game->map.height, game->map.width);
+	if (!game->map.animation_layer)
 		return (0);
-	}
-	mlx_loop_hook(game->mlx, sl_render_animation_frame, game);
-	mlx_key_hook(game->mlx, sl_handle_key, game);
-	mlx_close_hook(game->mlx, sl_close_hook, game);
+	sl_tile_iterate(game, clear_animation_layer);
 	return (1);
 }

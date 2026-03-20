@@ -25,7 +25,6 @@
 char	*get_next_line(int fd);
 
 void	sl_error(const char *msg);
-void	sl_free_grid(char **grid, int height);
 void	sl_free_map(t_map *map);
 void	sl_free_game(t_game *game);
 void	sl_close_game(t_game *game);

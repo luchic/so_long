@@ -12,26 +12,14 @@
 
 #include "internal.h"
 
-void	sl_free_grid(char **grid, int height)
-{
-	int	i;
-
-	if (!grid)
-		return ;
-	i = 0;
-	while (i < height)
-	{
-		free(grid[i]);
-		i++;
-	}
-	free(grid);
-}
-
 void	sl_free_map(t_map *map)
 {
 	if (!map)
 		return ;
-	sl_free_grid(map->grid, map->height);
+	free_araay_rows(map->grid, map->height);
+	free_araay_rows(map->animation_layer, map->height);
+	free_araay_rows(map->background_layer, map->height);
+	free_araay_rows(map->interactive_layer, map->height);
 	map->grid = NULL;
 	map->height = 0;
 	map->width = 0;

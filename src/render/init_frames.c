@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:49:48 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:50:37 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:39:01 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ int	sl_init_interactive_frame(t_game *game)
 	if (!game->img.interactive_frame)
 		return (0);
 	if (mlx_image_to_window(game->mlx, game->img.interactive_frame, 0, 0) < 0)
+		return (0);
+	return (1);
+}
+
+int	sl_init_animation_frame(t_game *game)
+{
+	int	width;
+	int	height;
+
+	width = game->map.width * game->tile_size;
+	height = game->map.height * game->tile_size;
+	game->img.animation_frame = mlx_new_image(game->mlx, width, height);
+	if (!game->img.animation_frame)
+		return (0);
+	if (mlx_image_to_window(game->mlx, game->img.animation_frame, 0, 0) < 0)
 		return (0);
 	return (1);
 }

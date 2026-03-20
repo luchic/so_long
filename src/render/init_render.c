@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:44:41 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:57:44 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/19 20:43:17 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	sl_render_init(t_game *game)
 	{
 		return (0);
 	}
+	if (!sl_init_animation_frame(game))
+		return (0);
 	sl_draw_background_frame(game);
 	sl_draw_interactive_frame(game);
+	sl_draw_animation_frame(game);
 	return (1);
 }

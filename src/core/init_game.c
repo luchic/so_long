@@ -16,6 +16,7 @@ static void	sl_reset_game(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
 	game->tile_size = SL_TILE_SIZE;
+	game->last_frame_time = mlx_get_time();
 }
 
 static void	sl_init_player(t_game *game)
@@ -37,6 +38,7 @@ static int	sl_init_map(t_game *game, const char *path)
 
 int	sl_init_game(t_game *game, const char *path)
 {
+	srand((unsigned int)mlx_get_time());
 	sl_reset_game(game);
 	if (!sl_init_map(game, path))
 	{
