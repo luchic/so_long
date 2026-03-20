@@ -36,16 +36,6 @@ static int	sl_init_map(t_game *game, const char *path)
 	return (1);
 }
 
-static void init_text_on_screen(t_game *game)
-{
-	mlx_image_t *text_img;
-
-	text_img = mlx_put_string(game->mlx, "Moves: 0", 0, 0);
-	if (!text_img)
-		return ;
-	game->img.text = text_img;
-}
-
 int	sl_init_game(t_game *game, const char *path)
 {
 	srand((unsigned int)mlx_get_time());
@@ -68,6 +58,6 @@ int	sl_init_game(t_game *game, const char *path)
 	{
 		return (0);
 	}
-	init_text_on_screen(game);
+	sl_update_moves_text(game);
 	return (1);
 }

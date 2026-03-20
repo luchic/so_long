@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:28:02 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:29:06 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		sl_load_flame_asset(t_game *game);
 void	sl_redraw_animated(t_game *game);
 
 void	sl_render_animation_frame(void *data);
+
+void	sl_update_moves_text(t_game *game);
 
 // =================== Map generation =======================
 int		sl_generate_interactive_layer(t_game *game);
