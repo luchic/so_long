@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:13:34 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 11:17:33 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:00:21 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	set_interactive_tiles(t_game *game, int y, int x)
 		game->map.interactive_layer[y][x] = COLLECTABLE;
 	else if (game->map.grid[y][x] == 'E')
 		game->map.interactive_layer[y][x] = EXIT_CLOSED;
+	else if (game->map.grid[y][x] == 'F')
+		game->map.interactive_layer[y][x] = FOE;
 }
 
 void	sl_fill_interactive_layer(t_game *game)
