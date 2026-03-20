@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 17:57:11 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:01:17 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_textures
 	mlx_texture_t	*exit_open;
 	mlx_texture_t	*exit_close;
 	mlx_texture_t	*player;
+	mlx_texture_t	*foe;
 	mlx_texture_t	*empty;
 }					t_textures;
 

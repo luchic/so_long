@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 17:14:47 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:08:31 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	sl_destroy_textures(t_game *game)
 	sl_free_texture(&(game->textures.empty));
 	sl_free_texture(&(game->textures.exit_close));
 	sl_free_texture(&(game->textures.exit_open));
+	sl_free_texture(&(game->textures.foe));
 	sl_free_animation_texture(&(game->textures.flame));
 	sl_free_animation_texture(&(game->textures.brazier));
 }
