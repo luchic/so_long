@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   update_moves_text.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/20 17:30:58 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/20 17:31:33 by nluchini         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "internal.h"
 
 static char	*get_string(int moves)
 {
-	char *format;
-	char *number;
-	char *tmp;
+	char	*format;
+	char	*number;
+	char	*tmp;
 
 	format = "Moves: ";
 	number = ft_itoa(moves);
@@ -14,7 +26,6 @@ static char	*get_string(int moves)
 	free(number);
 	return (tmp);
 }
-
 
 void	sl_update_moves_text(t_game *game)
 {

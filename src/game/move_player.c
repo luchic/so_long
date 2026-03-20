@@ -26,7 +26,6 @@ void	sl_move_player(t_game *game, int dx, int dy)
 	game->player.pos.y = ny;
 	game->player.moves++;
 	ft_printf("Moves: %d\n", game->player.moves);
-	// mlx_put_string(game->mlx, "Moves: tmp", 0, 0);
 	sl_update_moves_text(game);
 	sl_check_win(game, nx, ny);
 	sl_redraw_interactive_frame(game);
