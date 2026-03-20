@@ -50,7 +50,7 @@ static void	generate_object(t_game *game, int y, int x)
 
 	if (game->map.animation_layer[y][x] == NONPLACEABLE)
 		return ;
-	probobilty = sl_random_range(0, 550);
+	probobilty = sl_random_range(0, 700);
 	if (is_corner(game, y, x))
 	{
 		if (probobilty < 35)
