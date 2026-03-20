@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:06 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:06:28 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:14:47 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	sl_destroy_img(t_game *game)
 	sl_free_img(game, &(game->img.background_frame));
 	sl_free_img(game, &(game->img.interactive_frame));
 	sl_free_img(game, &(game->img.animation_frame));
+	sl_free_img(game, &(game->img.text));
 }
