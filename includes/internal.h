@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 17:29:06 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 18:19:05 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "so_long.h"
 
+// ====================== Game ==============================
+void	sl_check_lose(t_game *game, int nx, int ny);
+
+// ================== Old =============
 int		sl_generate_background(t_game *game);
 int		sl_random_range(int min, int max);
 
