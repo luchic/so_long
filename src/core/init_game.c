@@ -52,10 +52,12 @@ int	sl_init_game(t_game *game, const char *path)
 	}
 	if (!sl_run_map_generation(game))
 	{
+		sl_free_game(game);
 		return (0);
 	}
 	if (!sl_render_init(game))
 	{
+		sl_free_game(game);
 		return (0);
 	}
 	sl_update_moves_text(game);
