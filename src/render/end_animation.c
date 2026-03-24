@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 00:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:16:17 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:25:22 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,18 @@ static int allocate_endframe(t_game *game)
 	return (1);
 }
 
+static void	fill_end_frame(t_game *game, uint32_t color)
+{
+	mlx_image_t	*frame;
+	int			width;
+	int			height;
+
+	frame = game->img.end_frame;
+	width = game->map.width * game->tile_size;
+	height = game->map.height * game->tile_size;
+	sl_fill_frame(frame, height, width, color);
+}
+
 int	sl_start_end_animation(t_game *game, t_end_state state)
 {
 	if (!game || game->end_state != PLAYING)
@@ -90,7 +102,7 @@ int	sl_start_end_animation(t_game *game, t_end_state state)
 
 	if (!allocate_endframe(game))
 		return (0);
-	sl_fill_frame(game->img.end_frame, game->map.height * game->tile_size, game->map.width * game->tile_size, end_color(state, 118));
+	fill_end_frame(game, end_color(state, 118));
 	if (state == WIN)
 		create_end_text(game, "YOU WIN!", "Closing soon...");
 	else
@@ -113,5 +125,5 @@ void	sl_update_end_animation(t_game *game)
 	}
 	if (!game->img.end_frame)
 		return ;
-	fill_overlay(game, end_color(game->end_state, end_alpha(elapsed)));
+	fill_end_frame(game, end_color(game->end_state, end_alpha(elapsed)));
 }
