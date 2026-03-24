@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lose.c                                             :+:      :+:    :+:   */
+/*   finish_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 21:00:35 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 21:00:37 by nluchini         ###   ########.fr       */
+/*   Created: 2026/03/16 12:00:00 by nluchini          #+#    #+#             */
+/*   Updated: 2026/03/24 12:14:07 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
+void	sl_check_win(t_game *game, int nx, int ny)
+{
+	if (game->map.interactive_layer[ny][nx] != EXIT_OPEN)
+		return ;
+	if (game->player.collected != game->map.collectibles)
+		return ;
+	sl_start_end_animation(game, SL_WIN);
+}
+
 void	sl_check_lose(t_game *game, int nx, int ny)
 {
 	if (game->map.interactive_layer[ny][nx] == FOE)
 	{
-		sl_close_game(game);
+		sl_start_end_animation(game, SL_LOSE);
 	}
 }
