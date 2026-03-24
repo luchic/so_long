@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/23 16:03:49 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:16:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ typedef enum e_animated
 
 typedef enum e_end_state
 {
-	SL_PLAYING,
-	SL_WIN,
-	SL_LOSE,
+	PLAYING,
+	WIN,
+	LOSE,
 }	t_end_state;
 
 typedef struct s_pos

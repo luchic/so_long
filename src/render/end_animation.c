@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 00:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:11:14 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:16:17 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static uint32_t	end_color(t_end_state state, int alpha)
 {
-	if (state == SL_WIN)
+	if (state == WIN)
 		return ((uint32_t)(24 << 24)
 			| (uint32_t)(84 << 16)
 			| (uint32_t)(28 << 8)
@@ -82,7 +82,7 @@ static int allocate_endframe(t_game *game)
 
 int	sl_start_end_animation(t_game *game, t_end_state state)
 {
-	if (!game || game->end_state != SL_PLAYING)
+	if (!game || game->end_state != PLAYING)
 		return (0);
 	game->game_over = 1;
 	game->end_state = state;
@@ -91,7 +91,7 @@ int	sl_start_end_animation(t_game *game, t_end_state state)
 	if (!allocate_endframe(game))
 		return (0);
 	sl_fill_frame(game->img.end_frame, game->map.height * game->tile_size, game->map.width * game->tile_size, end_color(state, 118));
-	if (state == SL_WIN)
+	if (state == WIN)
 		create_end_text(game, "YOU WIN!", "Closing soon...");
 	else
 		create_end_text(game, "GAME OVER", "Closing soon...");
@@ -103,7 +103,7 @@ void	sl_update_end_animation(t_game *game)
 {
 	double	elapsed;
 
-	if (!game || game->end_state == SL_PLAYING)
+	if (!game || game->end_state == PLAYING)
 		return ;
 	elapsed = mlx_get_time() - game->end_started_at;
 	if (elapsed >= game->end_duration)
