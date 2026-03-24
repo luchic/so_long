@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 00:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:25:22 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:40:13 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,6 @@ static void	create_end_text(t_game *game, const char *title,
 	game->img.end_subtitle = mlx_put_string(game->mlx, (char *)subtitle, 0, 0);
 	center_text_image(game->img.end_title, width, title_y);
 	center_text_image(game->img.end_subtitle, width, subtitle_y);
-}
-
-static int	end_alpha(double elapsed)
-{
-	double	cycle;
-	double	pulse;
-
-	cycle = elapsed * 0.75;
-	pulse = cycle - (int)cycle;
-	if (pulse > 0.5)
-		pulse = 1.0 - pulse;
-	pulse *= 2.0;
-	return (110 + (int)(pulse * 24.0));
 }
 
 static int allocate_endframe(t_game *game)
@@ -110,7 +97,6 @@ int	sl_start_end_animation(t_game *game, t_end_state state)
 	return (1);
 }
 
-
 void	sl_update_end_animation(t_game *game)
 {
 	double	elapsed;
@@ -123,7 +109,4 @@ void	sl_update_end_animation(t_game *game)
 		sl_close_game(game);
 		return ;
 	}
-	if (!game->img.end_frame)
-		return ;
-	fill_end_frame(game, end_color(game->end_state, end_alpha(elapsed)));
 }
