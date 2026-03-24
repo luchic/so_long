@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 00:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:58:53 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:10:37 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int	allocate_endframe(t_game *game)
 
 	width = game->map.width * game->tile_size;
 	height = game->map.height * game->tile_size;
-
 	game->img.end_frame = mlx_new_image(game->mlx, width, height);
 	if (!game->img.end_frame)
 		return (0);
@@ -47,7 +46,6 @@ int	sl_start_end_animation(t_game *game, t_end_state state)
 	game->game_over = 1;
 	game->end_state = state;
 	game->end_started_at = mlx_get_time();
-
 	if (!allocate_endframe(game))
 		return (0);
 	fill_end_frame(game, sl_end_color(state, 100));
