@@ -18,6 +18,11 @@ void	sl_render_animation_frame(void *data)
 	double	now;
 
 	game = (t_game *)data;
+	if (game->end_state != SL_PLAYING)
+	{
+		sl_update_end_animation(game);
+		return ;
+	}
 	now = mlx_get_time();
 	if (now - game->last_frame_time < 0.08)
 		return ;

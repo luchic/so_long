@@ -16,6 +16,8 @@ static void	sl_reset_game(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
 	game->tile_size = SL_TILE_SIZE;
+	game->end_state = SL_PLAYING;
+	game->end_duration = 2.5;
 	game->last_frame_time = mlx_get_time();
 }
 

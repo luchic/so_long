@@ -14,7 +14,7 @@
 
 void	sl_close_game(t_game *game)
 {
-	if (!game || game->game_over)
+	if (!game || !game->mlx)
 		return ;
 	game->game_over = 1;
 	mlx_close_window(game->mlx);
