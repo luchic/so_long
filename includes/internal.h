@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 11:58:56 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 11:59:35 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 // ====================== Game ==============================
 void	sl_check_lose(t_game *game, int nx, int ny);
+void	sl_start_end_animation(t_game *game, t_end_state state);
+void	sl_update_end_animation(t_game *game);
 
 // ================== Old =============
 int		sl_generate_background(t_game *game);
