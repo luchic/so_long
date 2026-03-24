@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 13:10:12 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:32:05 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			sl_load_flame_asset(t_game *game);
 
 void		sl_redraw_animated(t_game *game);
 
-void		sl_render_animation_frame(void *data);
+void		sl_render_animation_frame(t_game *game);
 
 void		sl_update_moves_text(t_game *game);
 void		sl_fill_frame(mlx_image_t *frame, int height, int width,

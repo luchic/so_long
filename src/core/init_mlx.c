@@ -6,11 +6,24 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:14:02 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 15:55:13 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:32:34 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
+
+static void	loop_hook(void *data)
+{
+	t_game	*game;
+	double	now;
+
+	game = (t_game *)data;
+	if (game->end_state == TOCLOSE)
+	{
+		sl_close_game(game);
+	}
+	sl_render_animation_frame(game);
+}
 
 int	sl_init_mlxwindow(t_game *game)
 {

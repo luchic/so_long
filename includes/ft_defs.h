@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:16:25 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:23:32 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef enum e_end_state
 	PLAYING,
 	WIN,
 	LOSE,
+	TOCLOSE,
 }	t_end_state;
 
 typedef struct s_pos
