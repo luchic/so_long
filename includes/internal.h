@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 20:56:51 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 11:58:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ void	sl_redraw_animated(t_game *game);
 void	sl_render_animation_frame(void *data);
 
 void	sl_update_moves_text(t_game *game);
+void	sl_fill_frame(mlx_image_t *frame, int height,
+			int width, uint32_t color);
+
 
 // =================== Map generation =======================
 int		sl_generate_interactive_layer(t_game *game);

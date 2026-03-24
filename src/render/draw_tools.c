@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_tiles.c                                       :+:      :+:    :+:   */
+/*   draw_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 10:13:12 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 10:13:13 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 11:58:09 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
+
+void	sl_fill_frame(mlx_image_t *frame, int height, int width, uint32_t color)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < height)
+	{
+		x = 0;
+		while (x < width)
+		{
+			mlx_put_pixel(frame, x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
 
 int	sl_insert_tile(
 	t_game *game,
