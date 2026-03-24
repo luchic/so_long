@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:46:27 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:27:44 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:16:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef enum e_map_tile
 	COLLECTABLE,
 	EXIT_CLOSED,
 	EXIT_OPEN,
+	FOE,
 }	t_map_tiles;
 
 typedef enum e_animated
@@ -36,6 +37,13 @@ typedef enum e_animated
 	FLAME,
 	BRAZIER,
 }	t_animated;
+
+typedef enum e_end_state
+{
+	PLAYING,
+	WIN,
+	LOSE,
+}	t_end_state;
 
 typedef struct s_pos
 {
@@ -89,14 +97,19 @@ typedef struct s_textures
 	mlx_texture_t	*exit_open;
 	mlx_texture_t	*exit_close;
 	mlx_texture_t	*player;
+	mlx_texture_t	*foe;
 	mlx_texture_t	*empty;
 }					t_textures;
 
 typedef struct s_img
 {
+	mlx_image_t		*text;
 	mlx_image_t		*background_frame;
 	mlx_image_t		*interactive_frame;
 	mlx_image_t		*animation_frame;
+	mlx_image_t		*end_frame;
+	mlx_image_t		*end_title;
+	mlx_image_t		*end_subtitle;
 }					t_img;
 
 typedef struct s_game
@@ -108,7 +121,10 @@ typedef struct s_game
 	t_textures		textures;
 	int				tile_size;
 	int				game_over;
+	t_end_state		end_state;
 	double			last_frame_time;
+	double			end_started_at;
+	double			end_duration;
 }					t_game;
 
 #endif

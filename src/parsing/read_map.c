@@ -62,10 +62,10 @@ int	sl_read_map(const char *path, t_map *map)
 	if (!grid)
 		return (close(fd), 0);
 	if (!sl_load_lines(fd, &grid, &count, &cap))
-		return (close(fd), free_araay_rows(grid, count), 0);
+		return (close(fd), sl_free_array_rows(grid, count), 0);
 	close(fd);
 	if (count == 0)
-		return (free_araay_rows(grid, count), 0);
+		return (sl_free_array_rows(grid, count), 0);
 	map->grid = grid;
 	map->height = count;
 	map->width = ft_strlen(grid[0]);

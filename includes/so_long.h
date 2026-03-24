@@ -42,7 +42,6 @@ int		sl_validate_shape(t_map *map);
 int		sl_validate_chars(t_map *map);
 int		sl_validate_path(t_map *map);
 void	sl_flood_fill(char **grid, int width, int height, t_pos start);
-char	**sl_dup_grid(char **grid, int height);
 
 int		sl_render_init(t_game *game);
 void	sl_draw_map(t_game *game);

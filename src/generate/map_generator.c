@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:23:53 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/19 20:17:14 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/20 21:00:48 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	sl_generate_background(t_game *game)
 {
-	game->map.background_layer = init_array(game->map.height, game->map.width);
+	game->map.background_layer = sl_init_array(game->map.height,
+			game->map.width);
 	if (!game->map.background_layer)
 		return (0);
 	sl_fill_floor_tiles(game);

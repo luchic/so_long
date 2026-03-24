@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/16 12:00:00 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 12:16:06 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	sl_reset_game(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
 	game->tile_size = SL_TILE_SIZE;
+	game->end_state = PLAYING;
+	game->end_duration = 2.5;
 	game->last_frame_time = mlx_get_time();
 }
 
@@ -52,11 +54,14 @@ int	sl_init_game(t_game *game, const char *path)
 	}
 	if (!sl_run_map_generation(game))
 	{
+		sl_free_game(game);
 		return (0);
 	}
 	if (!sl_render_init(game))
 	{
+		sl_free_game(game);
 		return (0);
 	}
+	sl_update_moves_text(game);
 	return (1);
 }

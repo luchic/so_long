@@ -26,8 +26,14 @@ void	sl_flood_fill(char **grid, int width, int height, t_pos start)
 	y = start.y;
 	if (!sl_in_bounds(x, y, width, height))
 		return ;
-	if (grid[y][x] == '1' || grid[y][x] == 'V')
+	if (grid[y][x] == '1' || grid[y][x] == 'F'
+		|| grid[y][x] == 'V' || grid[y][x] == 'O')
 		return ;
+	if (grid[y][x] == 'E')
+	{
+		grid[y][x] = 'O';
+		return ;
+	}
 	grid[y][x] = 'V';
 	sl_flood_fill(grid, width, height, (t_pos){x + 1, y});
 	sl_flood_fill(grid, width, height, (t_pos){x - 1, y});

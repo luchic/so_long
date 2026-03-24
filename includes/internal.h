@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 14:45:54 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/20 16:28:02 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:10:12 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,66 @@
 
 # include "so_long.h"
 
-int		sl_generate_background(t_game *game);
-int		sl_random_range(int min, int max);
+// ====================== Game ==============================
+void		sl_check_lose(t_game *game, int nx, int ny);
+int			sl_start_end_animation(t_game *game, t_end_state state);
+void		sl_update_end_animation(t_game *game);
 
-void	sl_free_texture(mlx_texture_t	**texture);
-void	sl_destroy_textures(t_game *game);
-void	sl_free_img(t_game *game, mlx_image_t	**img);
-void	sl_destroy_img(t_game *game);
+// ================== Old =============
+int			sl_generate_background(t_game *game);
+int			sl_random_range(int min, int max);
 
-int		sl_load_assets(t_game *game);
+void		sl_free_texture(mlx_texture_t **texture);
+void		sl_destroy_textures(t_game *game);
+void		sl_free_img(t_game *game, mlx_image_t **img);
+void		sl_destroy_img(t_game *game);
 
-int		sl_run_map_generation(t_game *game);
+int			sl_load_assets(t_game *game);
 
-char	**init_array(int height, int widht);
-char	**copy_array(char **src, int height, int widht);
-void	free_araay_rows(char **array, int size);
+int			sl_run_map_generation(t_game *game);
 
-int		sl_insert_tile(t_game *game, mlx_image_t *interactive_frame,
-			mlx_texture_t *tile, t_pos dpos);
+char		**sl_init_array(int height, int width);
+char		**sl_copy_array(char **src, int height, int width);
+void		sl_free_array_rows(char **array, int size);
+
+int			sl_insert_tile(t_game *game, mlx_image_t *interactive_frame,
+				mlx_texture_t *tile, t_pos dpos);
 
 // ====================== Render ============================
-void	sl_draw_animation_frame(t_game *game);
-void	sl_draw_background_frame(t_game *game);
-void	sl_draw_interactive_frame(t_game *game);
-int		sl_init_background_frame(t_game *game);
-int		sl_init_interactive_frame(t_game *game);
-int		sl_init_animation_frame(t_game *game);
-void	sl_redraw_interactive_frame(t_game *game);
+void		sl_draw_animation_frame(t_game *game);
+void		sl_draw_background_frame(t_game *game);
+void		sl_draw_interactive_frame(t_game *game);
+int			sl_init_background_frame(t_game *game);
+int			sl_init_interactive_frame(t_game *game);
+int			sl_init_animation_frame(t_game *game);
+void		sl_redraw_interactive_frame(t_game *game);
 
-int		sl_load_brazier_asset(t_game *game);
-int		sl_load_flame_asset(t_game *game);
+int			sl_load_brazier_asset(t_game *game);
+int			sl_load_flame_asset(t_game *game);
 
-void	sl_redraw_animated(t_game *game);
+void		sl_redraw_animated(t_game *game);
 
-void	sl_render_animation_frame(void *data);
+void		sl_render_animation_frame(void *data);
+
+void		sl_update_moves_text(t_game *game);
+void		sl_fill_frame(mlx_image_t *frame, int height, int width,
+				uint32_t color);
+uint32_t	sl_end_color(t_end_state state, int alpha);
+int			sl_create_end_text(t_game *game, const char *title,
+				const char *subtitle);
 
 // =================== Map generation =======================
-int		sl_generate_interactive_layer(t_game *game);
-int		sl_alloc_interactive_layer(t_game *game);
-void	sl_tile_iterate(t_game *game, void (*f)(t_game*, int, int));
-void	sl_fill_interactive_layer(t_game *game);
-void	sl_fill_floor_tiles(t_game *game);
-void	sl_fill_wall_tiles(t_game *game);
+int			sl_generate_interactive_layer(t_game *game);
+int			sl_alloc_interactive_layer(t_game *game);
+void		sl_tile_iterate(t_game *game, void (*f)(t_game *, int, int));
+void		sl_fill_interactive_layer(t_game *game);
+void		sl_fill_floor_tiles(t_game *game);
+void		sl_fill_wall_tiles(t_game *game);
 
-void	sl_fill_animation_layer(t_game *game);
-int		sl_generate_animation_layer(t_game *game);
-int		sl_alloc_animation_layer(t_game *game);
-int		sl_iswall_tile(char tile);
-int		sl_isplayer(t_game *game, int y, int x);
-int		sl_iscollectable(char tile);
+void		sl_fill_animation_layer(t_game *game);
+int			sl_generate_animation_layer(t_game *game);
+int			sl_alloc_animation_layer(t_game *game);
+int			sl_iswall_tile(char tile);
+int			sl_isplayer(t_game *game, int y, int x);
+int			sl_iscollectable(char tile);
 #endif

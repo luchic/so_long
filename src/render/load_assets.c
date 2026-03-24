@@ -23,7 +23,8 @@ static int	check_allocation_textures(t_game *game)
 		|| !game->textures.collect
 		|| !game->textures.player
 		|| !game->textures.exit_close
-		|| !game->textures.exit_open)
+		|| !game->textures.exit_open
+		|| !game->textures.foe)
 	{
 		sl_destroy_textures(game);
 		return (0);
@@ -48,6 +49,7 @@ static int	allocate_textures(t_game *game)
 			"./textures/iteractive/exit_closed.png");
 	game->textures.exit_open = mlx_load_png(
 			"./textures/iteractive/exit_opend.png");
+	game->textures.foe = mlx_load_png("./textures/iteractive/foe.png");
 	if (!check_allocation_textures(game))
 	{
 		sl_destroy_textures(game);
