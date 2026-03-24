@@ -6,18 +6,16 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:21:46 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 12:16:06 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:31:24 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "internal.h"
 
-void	sl_render_animation_frame(void *data)
+void	sl_render_animation_frame(t_game	*game)
 {
-	t_game	*game;
 	double	now;
 
-	game = (t_game *)data;
 	if (game->end_state != PLAYING)
 	{
 		sl_update_end_animation(game);

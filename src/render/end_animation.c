@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 00:00:00 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/24 13:10:37 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:36:32 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ static void	fill_end_frame(t_game *game, uint32_t color)
 	sl_fill_frame(frame, height, width, color);
 }
 
-int	sl_start_end_animation(t_game *game, t_end_state state)
+static int	start_end_animation(t_game *game, t_end_state state)
 {
+	int	status;
+
+	status = 0;
 	if (!game || game->end_state != PLAYING)
 		return (0);
 	game->game_over = 1;
@@ -50,9 +53,19 @@ int	sl_start_end_animation(t_game *game, t_end_state state)
 		return (0);
 	fill_end_frame(game, sl_end_color(state, 100));
 	if (state == WIN)
-		sl_create_end_text(game, "YOU WIN!", "Closing soon...");
+		status = sl_create_end_text(game, "YOU WIN!", "Closing soon...");
 	else
-		sl_create_end_text(game, "GAME OVER", "Closing soon...");
+		status = sl_create_end_text(game, "GAME OVER", "Closing soon...");
+	return (status);
+}
+
+int	sl_start_end_animation(t_game *game, t_end_state state)
+{
+	if (!start_end_animation(game, state))
+	{
+		game->end_state = TOCLOSE;
+		return (0);
+	}
 	return (1);
 }
 

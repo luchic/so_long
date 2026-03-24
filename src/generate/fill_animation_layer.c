@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 16:26:47 by nluchini          #+#    #+#             */
-/*   Updated: 2026/03/22 16:10:00 by nluchini         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:22:10 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	is_corner(t_game *game, int y, int x)
 	return (0);
 }
 
-static int	is_interactive_object_nereby(t_game *game, int y, int x)
+static int	is_interactive_object_nearby(t_game *game, int y, int x)
 {
 	if ((y - 1) < 0 || (x - 1) < 0
 		|| (x + 1) >= game->map.width || (y + 1) >= game->map.height)
@@ -70,7 +70,7 @@ static void	generate_object(t_game *game, int y, int x)
 		else if (probobilty < 50)
 			game->map.animation_layer[y][x] = FLAME;
 	}
-	if (is_interactive_object_nereby(game, y, x))
+	if (is_interactive_object_nearby(game, y, x))
 	{
 		if (probobilty < 5)
 			game->map.animation_layer[y][x] = BRAZIER;
